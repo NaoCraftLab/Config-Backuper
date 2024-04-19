@@ -9,8 +9,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Path;
 
@@ -20,7 +20,7 @@ public class FabricModInitializer implements ModInitializer {
             .getModContainer("config-backuper")
             .map(ModContainer::getMetadata)
             .orElseThrow(() -> new CriticalConfigBackuperException("Failed to get mod metadata"));
-    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_METADATA.getName());
+    private static final Logger LOGGER = LogManager.getLogger(MOD_METADATA.getName());
 
     private ModConfigurationManager modConfigurationManager;
     private ConfigBackuper configBackuper;
