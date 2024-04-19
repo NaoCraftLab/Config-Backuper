@@ -21,7 +21,7 @@
   "mixins": [],
   "depends": {
     "fabricloader": ">=0.15.0",
-    "minecraft": ">=1.18-Experimental.1",
+    "minecraft": ">=1.19-Experimental.1",
     "java": ">=17"
   },
   "suggests": {
