@@ -21,8 +21,8 @@
   "mixins": [],
   "depends": {
     "fabricloader": ">=0.15.0",
-    "minecraft": ">=1.17-alpha.21.3.a",
-    "java": ">=16"
+    "minecraft": ">=1.16-alpha.20.6.a",
+    "java": ">=8"
   },
   "suggests": {
     "another-mod": "*"

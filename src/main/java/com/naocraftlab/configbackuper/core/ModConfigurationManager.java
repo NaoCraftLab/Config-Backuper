@@ -7,9 +7,9 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Path;
 
+import static com.naocraftlab.configbackuper.core.Files.readString;
+import static com.naocraftlab.configbackuper.core.Files.writeString;
 import static java.nio.file.Files.notExists;
-import static java.nio.file.Files.readString;
-import static java.nio.file.Files.writeString;
 
 public class ModConfigurationManager {
 

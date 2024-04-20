@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
@@ -30,16 +32,16 @@ public class ConfigBackuper {
     private final static Path GAME_CONFIG_PATH = Paths.get("./options.txt");
     private final static Path CONFIG_FOLDER_PATH = Paths.get("./config");
     private final static Path SHADER_FOLDER_PATH = Paths.get("./shaderpacks");
-    private final static Set<String> SHADER_CONFIG_EXTENSIONS = Set.of(
+    private final static Set<String> SHADER_CONFIG_EXTENSIONS = new HashSet<>(Arrays.asList(
             // OptiFine or Iris shader configs
             ".txt"
-    );
-    private final static Set<Path> UNIQUE_MOD_CONFIG_PATHS = Set.of(
+    ));
+    private final static Set<Path> UNIQUE_MOD_CONFIG_PATHS = new HashSet<>(Arrays.asList(
             // OptiFine settings
             Paths.get("./optionsf.txt"),
             // OptiFine or Iris shader settings
             Paths.get("./optionsshaders.txt")
-    );
+    ));
 
     private final Logger log;
     private final ModConfig modConfig;
