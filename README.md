@@ -24,6 +24,10 @@ The configuration file is located at `config/config-backuper.json`.
 - `backupFilePrefix` - prefix for backup file names
 - `backupFileSuffix` - suffix for backup file names
 
+## Modpacks
+
+You can use this mod in modpacks without requesting permission.
+
 ## Development
 
 ### Prerequisites
