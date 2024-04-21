@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "config-backuper",
+  "version": "${version}",
+  "name": "Config Backuper",
+  "description": "A simple mod for backing up all configurations at the start of the game.",
+  "authors": [
+    "NaoCraftLab"
+  ],
+  "contact": {
+    "sources": "https://github.com/NaoCraftLab/Config-Backuper"
+  },
+  "license": "MIT",
+  "icon": "assets/config-backuper/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.naocraftlab.configbackuper.FabricModInitializer"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": ">=1.14-alpha.19.2.a",
+    "java": ">=8"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
