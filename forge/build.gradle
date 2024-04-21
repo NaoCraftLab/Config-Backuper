@@ -19,12 +19,12 @@ apply plugin: 'maven-publish'
 
 version = '1.0.1'
 group = 'com.naocraftlab.configbackuper'
-archivesBaseName = 'config-backuper-forge-1.15'
+archivesBaseName = 'config-backuper-forge-1.16'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: '20200514-1.16'
 
     runs {
         client {
@@ -76,7 +76,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15-29.0.4'
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.108'
 
     shadow("com.naocraftlab:config-backuper-core:${version}")
 }
