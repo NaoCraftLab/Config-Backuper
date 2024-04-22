@@ -6,7 +6,6 @@ import com.naocraftlab.configbackuper.common.ModConfig;
 import com.naocraftlab.configbackuper.common.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
 import com.naocraftlab.configbackuper.util.LoggerWrapperLog4j;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -15,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.nio.file.Path;
 
-@Mod("config-backuper")
+@Mod("configbackuper")
 public class ForgeModInitializer
 {
     private static final LoggerWrapper LOGGER = new LoggerWrapperLog4j(LogManager.getLogger());
@@ -29,7 +28,7 @@ public class ForgeModInitializer
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        final Path configFile = FMLPaths.CONFIGDIR.get().resolve(ModLoadingContext.get().getActiveContainer().getModId() + ".json");
+        final Path configFile = FMLPaths.CONFIGDIR.get().resolve("config-backuper.json");
         modConfigurationManager = new ModConfigurationManager(LOGGER, configFile);
 
         final ModConfig modConfig = modConfigurationManager.read();

@@ -1,9 +1,9 @@
 modLoader="javafml" #mandatory
-loaderVersion="[32,)" #mandatory
+loaderVersion="[37,)" #mandatory
 license="MIT"
 issueTrackerURL="https://github.com/NaoCraftLab/Config-Backuper/issues" #optional
 [[mods]] #mandatory
-modId="config-backuper" #mandatory
+modId="configbackuper" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Config Backuper" #mandatory
 logoFile="icon.png" #optional
@@ -12,12 +12,12 @@ description="A simple mod for backing up all configurations at the start of the 
 [[dependencies.config-backuper]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[32,)" #mandatory
+    versionRange="[37,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.config-backuper]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.1,1.16.5]"
+    versionRange="[1.17.1]"
     ordering="NONE"
     side="BOTH"
