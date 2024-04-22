@@ -6,12 +6,12 @@ import com.naocraftlab.configbackuper.common.CriticalConfigBackuperException;
 import com.naocraftlab.configbackuper.common.ModConfig;
 import com.naocraftlab.configbackuper.common.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
-import com.naocraftlab.configbackuper.util.LoggerWrapperLog4j;
+import com.naocraftlab.configbackuper.util.LoggerWrapperSlf4j;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
-import org.apache.logging.log4j.LogManager;
+import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
 
@@ -21,7 +21,7 @@ public class FabricModInitializer implements ModInitializer {
             .getModContainer("config-backuper")
             .map(ModContainer::getMetadata)
             .orElseThrow(() -> new CriticalConfigBackuperException("Failed to get mod metadata"));
-    private static final LoggerWrapper LOGGER = new LoggerWrapperLog4j(LogManager.getLogger(MOD_METADATA.getName()));
+    private static final LoggerWrapper LOGGER = new LoggerWrapperSlf4j(LoggerFactory.getLogger(MOD_METADATA.getName()));
 
     private ModConfigurationManager modConfigurationManager;
     private ConfigBackuper configBackuper;

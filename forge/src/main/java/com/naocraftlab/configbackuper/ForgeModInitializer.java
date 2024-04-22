@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.nio.file.Path;
 
+import static net.minecraftforge.api.distmarker.Dist.CLIENT;
 import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
 import static net.minecraftforge.fml.loading.FMLPaths.CONFIGDIR;
@@ -26,7 +27,7 @@ public class ForgeModInitializer {
         EVENT_BUS.register(this);
     }
 
-    @Mod.EventBusSubscriber(modid = "configbackuper", bus = MOD)
+    @Mod.EventBusSubscriber(modid = "configbackuper", bus = MOD, value = CLIENT)
     public static class ClientModEvents {
 
         @SubscribeEvent
