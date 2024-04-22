@@ -1,41 +1,45 @@
 package com.naocraftlab.configbackuper;
 
+import com.mojang.logging.LogUtils;
 import com.naocraftlab.configbackuper.common.BackupLimiter;
 import com.naocraftlab.configbackuper.common.ConfigBackuper;
 import com.naocraftlab.configbackuper.common.ModConfig;
 import com.naocraftlab.configbackuper.common.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
-import com.naocraftlab.configbackuper.util.LoggerWrapperLog4j;
+import com.naocraftlab.configbackuper.util.LoggerWrapperSlf4j;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.logging.log4j.LogManager;
 
 import java.nio.file.Path;
 
-@Mod("configbackuper")
-public class ForgeModInitializer
-{
-    private static final LoggerWrapper LOGGER = new LoggerWrapperLog4j(LogManager.getLogger());
+import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
+import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
+import static net.minecraftforge.fml.loading.FMLPaths.CONFIGDIR;
 
-    private ModConfigurationManager modConfigurationManager;
-    private ConfigBackuper configBackuper;
-    private BackupLimiter backupLimiter;
+@Mod("configbackuper")
+public class ForgeModInitializer {
+
+    private static final LoggerWrapper LOGGER = new LoggerWrapperSlf4j(LogUtils.getLogger());
 
     public ForgeModInitializer() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        EVENT_BUS.register(this);
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        final Path configFile = FMLPaths.CONFIGDIR.get().resolve("config-backuper.json");
-        modConfigurationManager = new ModConfigurationManager(LOGGER, configFile);
+    @Mod.EventBusSubscriber(modid = "configbackuper", bus = MOD)
+    public static class ClientModEvents {
 
-        final ModConfig modConfig = modConfigurationManager.read();
-        configBackuper = new ConfigBackuper(LOGGER, modConfig);
-        backupLimiter = new BackupLimiter(LOGGER, modConfig);
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            final Path configFile = CONFIGDIR.get().resolve("config-backuper.json");
+            final ModConfigurationManager modConfigurationManager = new ModConfigurationManager(LOGGER, configFile);
 
-        configBackuper.performBackup();
-        backupLimiter.removeOldBackups();
+            final ModConfig modConfig = modConfigurationManager.read();
+            final ConfigBackuper configBackuper = new ConfigBackuper(LOGGER, modConfig);
+            final BackupLimiter backupLimiter = new BackupLimiter(LOGGER, modConfig);
+
+            configBackuper.performBackup();
+            backupLimiter.removeOldBackups();
+        }
     }
 }
