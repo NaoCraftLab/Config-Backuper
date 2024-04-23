@@ -30,12 +30,20 @@ You can use this mod in modpacks without requesting permission.
 
 ## Development
 
-### Prerequisites
+### Fabric
 
-- JDK 17
-
-### Building
+#### Building
 
 ```shell
+cd fabric
+./gradlew build
+```
+
+### Forge
+
+#### Building
+
+```shell
+cd forge
 ./gradlew build
 ```
