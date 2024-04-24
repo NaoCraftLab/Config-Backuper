@@ -1,10 +1,10 @@
 package com.naocraftlab.configbackuper;
 
-import com.naocraftlab.configbackuper.common.BackupLimiter;
-import com.naocraftlab.configbackuper.common.ConfigBackuper;
-import com.naocraftlab.configbackuper.common.CriticalConfigBackuperException;
-import com.naocraftlab.configbackuper.common.ModConfig;
-import com.naocraftlab.configbackuper.common.ModConfigurationManager;
+import com.naocraftlab.configbackuper.core.BackupLimiter;
+import com.naocraftlab.configbackuper.core.ConfigBackuper;
+import com.naocraftlab.configbackuper.core.CriticalConfigBackuperException;
+import com.naocraftlab.configbackuper.core.ModConfig;
+import com.naocraftlab.configbackuper.core.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
 import com.naocraftlab.configbackuper.util.LoggerWrapperLog4j;
 import net.fabricmc.api.ModInitializer;
