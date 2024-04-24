@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "configbackuper",
+    "name": "Config Backuper",
+    "description": "A simple mod for backing up all configurations at the start of the game.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [
+      "NaoCraftLab"
+    ],
+    "logoFile": "icon.png"
+  }
+]
