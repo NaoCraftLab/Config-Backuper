@@ -1,4 +1,4 @@
-# <img src="src/main/resources/assets/config-backuper/icon.png" width="28"> Config Backuper
+# <img src="icon.png" width="28"/> Config Backuper
 
 A simple mod for backing up all configurations at the start of Minecraft.
 
