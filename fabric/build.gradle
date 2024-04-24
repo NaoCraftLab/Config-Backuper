@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    include(modImplementation "com.naocraftlab:config-backuper-core:${mod_version}")
+    include(modImplementation "com.naocraftlab:config-backuper-core:${core_version}")
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
