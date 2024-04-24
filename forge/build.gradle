@@ -84,7 +84,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18-38.0.17'
 
-    shadow("com.naocraftlab:config-backuper-core:${version}")
+    shadow("com.naocraftlab:config-backuper-core:1.0.1")
 }
 
 shadowJar {
