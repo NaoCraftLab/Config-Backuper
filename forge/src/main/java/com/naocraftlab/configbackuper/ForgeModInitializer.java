@@ -1,10 +1,10 @@
 package com.naocraftlab.configbackuper;
 
 import com.mojang.logging.LogUtils;
-import com.naocraftlab.configbackuper.common.BackupLimiter;
-import com.naocraftlab.configbackuper.common.ConfigBackuper;
-import com.naocraftlab.configbackuper.common.ModConfig;
-import com.naocraftlab.configbackuper.common.ModConfigurationManager;
+import com.naocraftlab.configbackuper.core.BackupLimiter;
+import com.naocraftlab.configbackuper.core.ConfigBackuper;
+import com.naocraftlab.configbackuper.core.ModConfig;
+import com.naocraftlab.configbackuper.core.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
 import com.naocraftlab.configbackuper.util.LoggerWrapperSlf4j;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,7 +14,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import java.nio.file.Path;
 
 import static net.minecraftforge.api.distmarker.Dist.CLIENT;
-import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
 import static net.minecraftforge.fml.loading.FMLPaths.CONFIGDIR;
 
@@ -23,9 +22,7 @@ public class ForgeModInitializer {
 
     private static final LoggerWrapper LOGGER = new LoggerWrapperSlf4j(LogUtils.getLogger());
 
-    public ForgeModInitializer() {
-        EVENT_BUS.register(this);
-    }
+    public ForgeModInitializer() {}
 
     @Mod.EventBusSubscriber(modid = "configbackuper", bus = MOD, value = CLIENT)
     public static class ClientModEvents {
