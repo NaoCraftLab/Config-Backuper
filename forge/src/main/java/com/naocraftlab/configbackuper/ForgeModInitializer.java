@@ -6,9 +6,9 @@ import com.naocraftlab.configbackuper.core.ModConfig;
 import com.naocraftlab.configbackuper.core.ModConfigurationManager;
 import com.naocraftlab.configbackuper.util.LoggerWrapper;
 import com.naocraftlab.configbackuper.util.LoggerWrapperLog4j;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 
 import java.nio.file.Path;
