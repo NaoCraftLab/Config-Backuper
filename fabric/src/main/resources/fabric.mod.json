@@ -8,6 +8,7 @@
     "NaoCraftLab"
   ],
   "contact": {
+    "homepage": "https://modrinth.com/mod/config-backuper",
     "sources": "https://github.com/NaoCraftLab/Config-Backuper"
   },
   "license": "MIT",
@@ -21,8 +22,8 @@
   "mixins": [],
   "depends": {
     "fabricloader": ">=0.15.0",
-    "minecraft": ">=1.20-alpha.23.12.a",
-    "java": ">=17"
+    "minecraft": ">=1.20.5-alpha.23.51.a",
+    "java": ">=21"
   },
   "suggests": {
     "another-mod": "*"
