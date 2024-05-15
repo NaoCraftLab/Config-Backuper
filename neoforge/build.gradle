@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.97'
+    id 'net.neoforged.gradle.userdev' version '7.0.124'
     id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 
@@ -16,10 +16,10 @@ repositories {
 }
 
 base {
-    archivesName =  'config-backuper-neoforge-1.20'
+    archivesName =  'config-backuper-neoforge-1.20.6'
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 runs {
     configureEach {
@@ -49,10 +49,14 @@ runs {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    shadow("com.naocraftlab:config-backuper-core:${version}")
+    shadow 'com.naocraftlab:config-backuper-core:1.0.1'
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -71,7 +75,7 @@ tasks.withType(ProcessResources).configureEach {
     ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml']) {
+    filesMatching(['META-INF/neoforge.mods.toml']) {
         expand replaceProperties
     }
 }

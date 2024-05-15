@@ -22,8 +22,6 @@ public class ForgeModInitializer {
 
     private static final LoggerWrapper LOGGER = new LoggerWrapperSlf4j(LogUtils.getLogger());
 
-    public ForgeModInitializer() {}
-
     @Mod.EventBusSubscriber(modid = "configbackuper", bus = MOD, value = CLIENT)
     public static class ClientModEvents {
 

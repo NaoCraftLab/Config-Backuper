@@ -2,7 +2,6 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
 issueTrackerURL="https://github.com/NaoCraftLab/Config-Backuper/issues"
-clientSideOnly=true
 
 [[mods]]
 modId="${mod_id}"
@@ -11,21 +10,27 @@ displayName="${mod_name}"
 updateJSONURL="https://api.modrinth.com/updates/config-backuper/forge_updates.json"
 displayURL="https://modrinth.com/mod/config-backuper"
 logoFile="icon.png"
-#credits=""
+#credits="" #optional
+#displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
 authors="${mod_authors}"
-#displayTest="MATCH_VERSION" # if nothing is specified, MATCH_VERSION is the default when clientSideOnly=false, otherwise IGNORE_ALL_VERSION when clientSideOnly=true (#optional)
 description='''${mod_description}'''
 
+#[[mixins]]
+#config="${mod_id}.mixins.json"
+
+#[[accessTransformers]]
+#file="META-INF/accesstransformer.cfg"
+
 [[dependencies.${mod_id}]]
-modId="forge"
-mandatory=true
-versionRange="${forge_version_range}"
+modId="neoforge"
+type="required"
+versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="minecraft"
-mandatory=true
+type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
